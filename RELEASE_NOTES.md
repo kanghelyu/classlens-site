@@ -1,3 +1,30 @@
+# ClassLens AI v0.3.3 / 课镜 AI
+
+修复周课表背景里几块突兀的硬边色块（绿/金/粉/蓝），并整理周次导航栏的拥挤布局。
+
+## 下载
+
+- `ClassLens-AI-v0.3.3.apk` — Android 8.0（API 26）及以上，arm64-v8a / armeabi-v7a / x86_64
+- SHA-256：`7f794a7883e6eda0f4a00490d50c641dcb82f193b431b64a422b056fd3ed8e85`
+- 大小：1.33 MB（1,397,359 字节）
+- 由 ClassLens 发布密钥签名，可直接覆盖升级
+
+## 修复
+
+### 环境背景去硬边
+
+- `LiquidGlass.drawAmbient()` 移除了原本用于「清晰折射边界」的 4 个 `drawCircle(实心 alpha)` 硬边圆
+- 改用三段渐变的 `Brush.radialGradient` 软光斑（中心 → 中段过渡 → 完全透明），玻璃面折射仍有色彩深度，但页面本身不再出现突兀的色块
+- 柔光斑数量从 8 个收敛到 5 个，整体观感更克制
+
+### 周次导航
+
+- 「回到本周」按钮仅在 `displayedWeek != currentWeek` 时显示，已是本周时不再出现
+- 周次标题与日期 `AutoSizeText` 显式声明 `maxLines = 1`，避免在窄列中被挤成多行
+- 行内 `IconButton` 与 LiquidButton 的间距收紧，导航栏整体更紧凑
+
+---
+
 # ClassLens AI v0.3.2 / 课镜 AI
 
 清理所有剩余 Material `Button` / `TextButton`，全部替换为 `LiquidButton`；修复编译期 deprecation 警告。
