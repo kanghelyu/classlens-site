@@ -1,0 +1,19 @@
+ClassLens AI (课镜 AI)
+Copyright 2026 ClassLens AI / Kanghe Lyu
+
+This product includes software developed by Kyant0.
+
+The liquid-glass rendering engine under
+app/src/main/java/com/kyant/backdrop/
+is derived from Kyant0/AndroidLiquidGlass:
+https://github.com/Kyant0/AndroidLiquidGlass
+and is licensed under the Apache License, Version 2.0.
+
+The vendored engine is based on the QingHeLedger snapshot referenced by
+commit 65ab177e90e5c1d8c62e70cf7755841982da65f6. The source is included
+under the original com.kyant.backdrop package. ClassLens changes are limited
+to the Android-only source inclusion and the ClassLens theme adapter;
+the rendering algorithm, shader sources, blur, lens, vibrancy, highlight,
+shadow, and API-level fallback behavior are retained.
+
+Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0

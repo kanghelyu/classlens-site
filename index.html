@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ClassLens AI Android release information, provider guidance, privacy, and licenses." />
+  <title>ClassLens AI | Android Release</title>
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+  <div class="notice-bar">
+    <div class="site-width notice-content">
+      <span>ClassLens AI Android release channel</span>
+      <a href="#download">Release manifest</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="site-width header-content">
+      <a class="brand" href="#top" aria-label="ClassLens AI home">
+        <span class="brand-mark" aria-hidden="true">CL</span>
+        <span>ClassLens AI</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Release navigation">
+        <a href="#download">Download</a>
+        <a href="#providers">Providers</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#licenses">Licenses</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero-section">
+      <div class="site-width hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">ANDROID STUDY WORKSPACE</p>
+          <h1>Class material, reviewed with context.</h1>
+          <p class="hero-summary">
+            ClassLens AI brings traditional course-material import and provider-guided analysis into one focused Android workflow.
+            Generated study help should always be checked against the original material.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#download">View release details</a>
+            <a class="text-link" href="#import">Read import guidance</a>
+          </div>
+        </div>
+
+        <aside class="release-brief" aria-label="Current release status">
+          <p class="release-brief-label">CURRENT RELEASE</p>
+          <strong data-release-field="version">vX.Y.Z</strong>
+          <span data-release-field="status">Metadata pending</span>
+          <dl>
+            <div>
+              <dt>Published</dt>
+              <dd data-release-field="publishedAt">YYYY-MM-DD</dd>
+            </div>
+            <div>
+              <dt>Minimum Android</dt>
+              <dd data-release-field="minimumAndroid">Android XX+</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="download" class="release-section" aria-labelledby="release-heading">
+      <div class="site-width release-layout">
+        <div class="section-heading section-heading-light">
+          <p class="kicker">RELEASE MANIFEST</p>
+          <h2 id="release-heading">Get the Android package.</h2>
+          <p>
+            Release values are shown here from a single local manifest. Verify the file hash before installing any APK obtained outside an app store.
+          </p>
+        </div>
+
+        <div class="download-panel">
+          <div class="download-panel-header">
+            <div>
+              <p class="eyebrow-light">ANDROID APK</p>
+              <h3 data-release-field="version">vX.Y.Z</h3>
+            </div>
+            <span class="status-pill" data-release-field="status">Metadata pending</span>
+          </div>
+
+          <dl class="manifest-list">
+            <div>
+              <dt>Published</dt>
+              <dd data-release-field="publishedAt">YYYY-MM-DD</dd>
+            </div>
+            <div>
+              <dt>Package size</dt>
+              <dd data-release-field="apkSize">XX MB</dd>
+            </div>
+            <div>
+              <dt>Minimum Android</dt>
+              <dd data-release-field="minimumAndroid">Android XX+</dd>
+            </div>
+            <div class="checksum-row">
+              <dt>SHA-256</dt>
+              <dd><code data-release-field="sha256">REPLACE_WITH_64_CHARACTER_SHA256</code></dd>
+            </div>
+          </dl>
+
+          <div class="download-actions">
+            <a class="button button-download" data-release-download href="#download">APK link pending</a>
+            <a class="text-link text-link-light" data-release-notes href="#download">Release notes pending</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="import" class="content-section" aria-labelledby="import-heading">
+      <div class="site-width split-layout">
+        <div class="section-heading">
+          <p class="kicker">IMPORT GUIDANCE</p>
+          <h2 id="import-heading">Start with the original material.</h2>
+          <p>
+            Keep a copy of the source document and use traditional import when you need to bring existing course files into your study workflow.
+          </p>
+        </div>
+
+        <div class="guidance-list">
+          <article class="guidance-item">
+            <p class="item-number">01</p>
+            <div>
+              <h3>Traditional import</h3>
+              <p>
+                Select your existing material from device storage, then review the imported result against the source before relying on it for study or submission.
+              </p>
+            </div>
+          </article>
+          <article class="guidance-item warning-item">
+            <p class="item-number">02</p>
+            <div>
+              <h3>Visual-model warning</h3>
+              <p>
+                Vision-capable models can miss small text, handwriting, tables, equation layout, rotations, and context across pages. Treat visual output as assistance, not an authoritative reading.
+              </p>
+            </div>
+          </article>
+          <article class="guidance-item">
+            <p class="item-number">03</p>
+            <div>
+              <h3>Share deliberately</h3>
+              <p>
+                Only submit material you are allowed to share. Remove sensitive personal information before sending text, pages, or images to a remote AI provider.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="providers" class="content-section content-section-alt" aria-labelledby="providers-heading">
+      <div class="site-width">
+        <div class="section-heading section-heading-wide">
+          <p class="kicker">PROVIDER MATRIX</p>
+          <h2 id="providers-heading">Know which route handles your material.</h2>
+          <p>
+            Availability depends on the provider and model you configure. The matrix distinguishes local handling from requests that may send selected content to a remote provider.
+          </p>
+        </div>
+
+        <div class="matrix-wrap" tabindex="0">
+          <table>
+            <caption>ClassLens AI data routes</caption>
+            <thead>
+              <tr>
+                <th scope="col">Route</th>
+                <th scope="col">Provider requirement</th>
+                <th scope="col">What may leave the device</th>
+                <th scope="col">Important limitation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Traditional import</th>
+                <td>None</td>
+                <td>No AI provider request is required to select source material.</td>
+                <td>Imported content still needs your review for completeness and formatting.</td>
+              </tr>
+              <tr>
+                <th scope="row">Text-capable AI</th>
+                <td>A provider and text-capable model selected by you</td>
+                <td>The text or excerpts you explicitly submit for analysis.</td>
+                <td>Generated answers can be incomplete, outdated, or incorrect.</td>
+              </tr>
+              <tr>
+                <th scope="row">Vision-capable AI</th>
+                <td>A provider and vision-capable model selected by you</td>
+                <td>The pages, images, or visual excerpts you explicitly submit.</td>
+                <td>Visual interpretation is probabilistic; verify it against the image.</td>
+              </tr>
+              <tr>
+                <th scope="row">Offline review</th>
+                <td>None</td>
+                <td>No provider transfer is involved.</td>
+                <td>AI-generated analysis is unavailable without a configured provider route.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy" class="content-section" aria-labelledby="privacy-heading">
+      <div class="site-width policy-layout">
+        <div class="section-heading">
+          <p class="kicker">PRIVACY</p>
+          <h2 id="privacy-heading">A release page without hidden credentials.</h2>
+          <p>
+            This static site contains no API keys, does not ask for provider credentials, and does not send your class material anywhere.
+          </p>
+        </div>
+
+        <div class="policy-columns">
+          <article class="policy-item">
+            <h3>Provider boundaries</h3>
+            <p>
+              When you choose to submit content through a configured AI route, that provider's terms, retention practices, and privacy policy govern the submitted content.
+            </p>
+          </article>
+          <article class="policy-item">
+            <h3>Release-page scope</h3>
+            <p>
+              The release page is informational. It does not collect uploads, account data, or provider keys, and it has no embedded analytics or third-party media.
+            </p>
+          </article>
+          <article class="policy-item">
+            <h3>Your review</h3>
+            <p>
+              Check the APK source and SHA-256 before installation, and only use materials you have the right to process.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="licenses" class="content-section license-section" aria-labelledby="licenses-heading">
+      <div class="site-width split-layout">
+        <div class="section-heading">
+          <p class="kicker">LICENSES</p>
+          <h2 id="licenses-heading">License information belongs with the build.</h2>
+          <p>
+            The final APK should include its applicable ClassLens license and third-party notices. Until the public release metadata is set, this page makes no claim about the app license.
+          </p>
+        </div>
+
+        <div class="license-notes">
+          <p><strong>ClassLens application license</strong><span data-release-field="license">License information pending release</span></p>
+          <p><strong>Third-party notices</strong><span>To be published with the final build and source distribution, where applicable.</span></p>
+          <p><strong>Model and provider terms</strong><span>Reviewed separately under the terms of the provider and model you choose.</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-width footer-content">
+      <span>ClassLens AI</span>
+      <span>Static Android release information</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/release-config.js"></script>
+  <script src="assets/js/release.js"></script>
+</body>
+</html>
