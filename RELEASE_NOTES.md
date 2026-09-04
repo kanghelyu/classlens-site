@@ -1,3 +1,69 @@
+# ClassLens AI v0.3.4 / 课镜 AI
+
+本轮集中修复用户反馈的多项问题：AI 模型名称未更新、底部液态滑块不跟随选择、课表只能导入一个、AI 写入会误清空未上传字段、模型测试结果配色不对。
+
+## 下载
+
+- `ClassLens-AI-v0.3.4.apk` — Android 8.0（API 26）及以上，arm64-v8a / armeabi-v7a / x86_64
+- SHA-256：`7957c2b8c8a25dd38f57ce77aa67717358bcfbcaf2c64f6841da167d5f455090`
+- 大小：1.33 MB（1,397,359 字节）
+- 由 ClassLens 发布密钥签名，可直接覆盖升级
+
+## 修复
+
+### 1. AI 模型名称已更新到 2026 当前在售 ID
+
+`AiModels.kt` 的 provider 预设全部刷新为各厂商当前主推模型（此前停留在旧名，用户反馈「还是老模型」）：
+
+- OpenAI `gpt-4.1-mini` → `gpt-5-mini`
+- DeepSeek `deepseek-chat` → `deepseek-v4-flash`
+- 智谱 GLM `GLM-4.5` → `glm-5.2`
+- 火山 `doubao-seed-1-6-vision-250815` → `doubao-seed-2.0-pro-260215`
+- Kimi `kimi-k2-0905-preview` → `kimi-k2.5`
+- Claude `claude-sonnet-4-20250514` → `claude-sonnet-4-6`
+- Gemini `gemini-2.5-flash` → `gemini-3.5-flash`
+- Qwen `qwen-omni-latest` → `qwen3-max`
+- MiniMax `MiniMax-M1` → `MiniMax-M2.5`
+- xAI `grok-4` → `grok-4.3`
+- Mistral `mistral-medium-latest` → `mistral-medium-3.1`
+
+Ollama（`qwen3:8b`）与自定义 OpenAI 兼容接口保持不变。
+
+### 2. 底部液态滑块跟随选项
+
+`LiquidBottomTabs` 的底部 indicator 之前卡死在初始 tab，点击切换不跟随。根因是每次重组都重建了承载当前 index 的 `State` 对象，导致下游 `LaunchedEffect(snapshotFlow)` 一直监听旧的 `State`，点击永不重新触发动画。改为用一个稳定 `State` 承载整数选中值，并在 `selectedIndex` 变化时通过 `LaunchedEffect` 同步，indicator 现在会滑动到所选 tab。
+
+### 3. 支持导入多个课表 + 全局课表选择器
+
+- 新增 `Schedule` 数据模型（id / name / courses / term），SharedPreferences 以 JSON 数组存储全部课表，并单独记录当前激活课表 id。
+- 主界面顶部 AppBar 新增「课表」入口（`LiquidButton` + 分支图标），打开 `ScheduleManagerSheet`：
+  - 列出全部课表，单选 `RadioButton` 切换当前激活课表（影响全局数据、设置、AI 范围）
+  - 每行可重命名、可删除（激活中的课表不允许删除，至少保留 1 个）
+  - 「新建课表」一键创建
+- `ScheduleRepository` 重写：所有课程读写、学期设置、冲突/搜索都作用于「当前激活课表」。
+
+### 4. 课表相关设置跟随对应课表
+
+学期设置（开学日期、总周数、每日最大节数、每节起止时间、显示周末等）现在存入各自课表对象，切换课表时设置随之切换，互不串台。
+
+### 5. 暴露全部接口给 AI 助手
+
+`ScheduleToolRegistry` 已覆盖：读取/写入课程字段（名称、教师、教室、星期、起止节、周类型、周范围、颜色、学分、考试信息、分组）、学期设置（含每节课起止时间 `sectionTimes`）、冲突与搜索。AI 导入可写的范围与用户手动编辑完全一致。
+
+### 6. AI 只改对应课表的设置
+
+`AiClient.buildMessages` 在系统提示里明确告知当前激活课表名，并要求「读/写只影响该课表、修改课程必须带课程 id」；repository 层所有写入天然只作用于激活课表，从机制上保证不会跨课表误改。
+
+### 7. 关键字段保护（写死，不可绕过）
+
+用户上传内容里**没有**的字段，AI 一律不得清空或改成默认值。工具层用 `args.has("字段名")` 逐字段判断：只有上传里出现的字段才用新值覆盖，其余字段原样保留（合并而非整体替换）。学期设置同理用 `mergeTerm` 合并，而非从 JSON 整体重建（整体重建会丢字段）。系统提示也强制要求「只填要改的字段，绝不清空/重置其他字段」。
+
+### 8. 失败红、成功绿
+
+设置页模型测试等结果文案：含「失败 / 错误 / 连接失败」判为失败，用 `MaterialTheme.colorScheme.error`（红）；其余成功用绿色（浅色模式深绿 `0xFF1E8E4E`，深色模式亮绿 `0xFF41C98A`）。
+
+---
+
 # ClassLens AI v0.3.3 / 课镜 AI
 
 修复周课表背景里几块突兀的硬边色块（绿/金/粉/蓝），并整理周次导航栏的拥挤布局。
