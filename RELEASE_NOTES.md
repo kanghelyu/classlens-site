@@ -1,3 +1,30 @@
+# ClassLens AI v0.3.1 / 课镜 AI
+
+补齐剩余 Kyant0 组件接入，并让全局玻璃模糊度真正联动所有液态玻璃控件。
+
+## 下载
+
+- `ClassLens-AI-v0.3.1.apk` — Android 8.0（API 26）及以上，arm64-v8a / armeabi-v7a / x86_64
+- SHA-256：`bc7cb86b7bf5a1b41bbda46873f51101d014285721a01e05caecbf4511f92ce4`
+- 大小：1.33 MB（1,397,359 字节）
+- 由 ClassLens 发布密钥签名，后续版本可直接覆盖升级
+
+## 新增与完善
+
+### 全局玻璃模糊度联动
+
+- `LiquidButton`、`LiquidSlider`、`LiquidToggle`、`LiquidBottomTabs` 全部读取 `AppearanceSettings.glassBlurDp`
+- 玻璃磨砂、透镜折射高度/强度随滑块实时变化，不再是硬编码常量
+- `GlassPanel` / `classLensGlass` 原本已接入，现在整套 liquid glass 统一
+
+### 剩余界面 Kyant0 化
+
+- 课程编辑器（`CourseEditorSheet`）：取消/保存按钮改为 `LiquidButton`
+- 学期设置（`TermSettingsSheet`）：取消/保存按钮改为 `LiquidButton`；「显示周末」`Switch` 改为 `LiquidToggle`
+- 教务系统导入（`EduImportDialog`）：抓取/解析/关闭按钮改为 `LiquidButton`
+
+---
+
 # ClassLens AI v0.3.0 / 课镜 AI
 
 UI 与 AI 模型一轮大 refinement：深度接入 Kyant0 AndroidLiquidGlass 控件、课表排版重做、模型列表更新到主流性价比多模态。
