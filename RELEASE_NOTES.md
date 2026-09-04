@@ -1,3 +1,32 @@
+# ClassLens AI v0.3.2 / 课镜 AI
+
+清理所有剩余 Material `Button` / `TextButton`，全部替换为 `LiquidButton`；修复编译期 deprecation 警告。
+
+## 下载
+
+- `ClassLens-AI-v0.3.2.apk` — Android 8.0（API 26）及以上，arm64-v8a / armeabi-v7a / x86_64
+- SHA-256：`e30fa737b1d85348ada2cd66d8f6efb888d8a3e02aac576b390c797db285d869`
+- 大小：1.33 MB（1,397,359 字节）
+- 由 ClassLens 发布密钥签名，后续版本可直接覆盖升级
+
+## 新增与完善
+
+### 全面 Kyant0 按钮化
+
+- `MainActivity` 中所有 AlertDialog 的确认/取消/删除/清空/编辑/保存/测试按钮全部改为 `LiquidButton`
+- `AppearanceSheet`：「恢复默认」「配色标签」改为 `LiquidButton`
+- `WeekScheduleScreen`：「回到本周」改为 `LiquidButton`
+- 删除/清空等危险操作用 `tint = MaterialTheme.colorScheme.error` 标示
+- 测试/次要操作用 `tint = MaterialTheme.colorScheme.secondary` 标示
+
+### 编译清理
+
+- 修复 `Modifier.menuAnchor()` deprecation 警告，改用带 `MenuAnchorType` 的重载
+- 修复 `Icons.Rounded.MenuBook` deprecation 警告，改用 `Icons.AutoMirrored.Rounded.MenuBook`
+- 移除已弃用的 `Button`、`ButtonDefaults`、`TextButton` 导入
+
+---
+
 # ClassLens AI v0.3.1 / 课镜 AI
 
 补齐剩余 Kyant0 组件接入，并让全局玻璃模糊度真正联动所有液态玻璃控件。
