@@ -1,3 +1,44 @@
+# ClassLens AI v0.3.7 / 课镜 AI
+
+本轮集中修复用户反馈的交互问题，并重做教务导入解析层。
+
+## 下载
+
+- `ClassLens-AI-v0.3.7.apk` — Android 8.0（API 26）及以上
+- SHA-256：`539123fe66f594c17bf1ebef5787d4fe800ec00c3f3556bb07b089dfd68fbd22`
+- 大小：1.36 MB（1,430,127 字节）
+- 由 ClassLens 发布密钥签名，可直接覆盖升级
+
+## 交互修复
+
+### 1. 滑块现在真正能拖动了（LiquidSlider）
+
+手柄此前走的是 `DampedDragAnimation.modifier`（其内部 `inspectDragGestures` 在部分机型上不触发拖拽事件），导致滑块无法拖动。改为与轨道一致的 Compose 标准 `detectHorizontalDragGestures`，拖动与点按跳转均恢复正常。
+
+### 2. 去除按钮 / 滑块手柄的浅黑阴影
+
+手柄与开关原本有一圈 `Black @ 0.05, 4dp` 的阴影，在容器边缘被裁剪时会露出一截黑边，显得脏。已将扩散收紧为 `2dp` 且透明度归零，截断面不再有黑边。
+
+### 3. 暗色模式课程卡片文字改为对比色
+
+课程卡片底色按课程色填充（暗色下多为浅色），原文字用 `onSurface`（暗色下为浅色）导致浅字压浅底、几乎不可见。现按底色 `luminance` 自动取深/浅对比文字，暗色下为浅色，保证可读。
+
+### 4. 新增亮色 / 暗色 / 跟随系统 主题切换
+
+设置页新增「主题模式」三选项（跟随系统 / 亮色 / 暗色），选择持久化，全局 `ClassLensTheme(darkTheme=...)` 即时生效。
+
+## 教务导入重做（解析层）
+
+参考 Dawn-Course / TodoSchedule 等开源课表项目的「WebView 内登录态抓取已渲染 HTML → 表格解析」方案，修正三处致命问题：
+
+- **解码 `\uXXXX` unicode 转义**：`evaluateJavascript` 默认把 `< > "` 编码成 `\u003C \u003E \u0022`，旧代码只解 `\" \n \r \t`，导致解析器看到的仍是 `\u003cdiv\u003e`、匹配不到任何标签、列表永远为空。现已先解码全部 `\uXXXX`。
+- **正方 HTML 改走通用表格解析器**：正方「个人课表」页是 HTML 表格，旧路由却把它送给只认 JSON 的 `ZhengFangParser`，必然返回空。`ZhengFangParser` 仅保留给 JSON API 分支。
+- **通用表格解析器支持 rowspan / colspan 展开**：多节次课程常以 `<td rowspan="2">` 跨行，旧解析器忽略后整表列错位。新版按网格展开，并优先识别 `id="kbtable"`、按 `<div>`（正方 `kbcontent`）或 `<br>` 拆分课程块，启发式提取课程名 / 教师 / 地点 / 周次（含单双周）。
+
+覆盖厂商：正方新/旧、强智、URP、青果、金智、CRP、eams 树维等常见表格教务。
+
+---
+
 # ClassLens AI v0.3.6 / 课镜 AI
 
 v0.3.5 发布后的自查补丁（针对交互逻辑做了一次完整 code-review，无功能性回退）：
