@@ -1,3 +1,44 @@
+# ClassLens AI v0.3.0 / 课镜 AI
+
+UI 与 AI 模型一轮大 refinement：深度接入 Kyant0 AndroidLiquidGlass 控件、课表排版重做、模型列表更新到主流性价比多模态。
+
+## 下载
+
+- `ClassLens-AI-v0.3.0.apk` — Android 8.0（API 26）及以上，arm64-v8a / armeabi-v7a / x86_64
+- SHA-256：`4552273c330ef60d1654af67a27f4e706973a7c18394bd51ab8374c8ca3eed28`
+- 大小：1.33 MB（1,397,359 字节）
+- 由 ClassLens 发布密钥签名，后续版本可直接覆盖升级
+
+## 新增与完善
+
+### 液态玻璃全面接入
+
+- 底部导航替换为 `LiquidBottomTabs` + `LiquidBottomTab`，保留 ClassLens 品牌色
+- 主界面操作按钮、导入页动作按钮、设置页按钮全部使用 `LiquidButton`
+- 外观页滑块替换为 `LiquidSlider`，开关替换为 `LiquidToggle`
+- 全局玻璃模糊度在 `AppearanceSettings` 可调（`glassBlurDp`），并向下传递到底层 backdrop
+- 圆角、留白、字体缩放统一调整，文字不再被截断
+
+### 课表与导入体验
+
+- 课程表布局重做：最窄列宽保护、小屏自动横向滚动、自适应字号 `AutoSizeText`
+- 空课表状态显示「导入课表」「添加课程」两个入口，点击直接跳转
+- 移除顶部 AppBar 的「+」按钮，减少误触
+- AI 导入未配置时，灰色「去设置」文案本身可点击跳转；配置完成后按钮与其他入口一致显示「开始」
+
+### AI provider 模型更新
+
+- 默认模型切换为当前主流性价比多模态选项：OpenAI `gpt-4.1-mini`、Qwen `qwen-omni-latest`、Gemini / Claude / DeepSeek / GLM / 火山 / Kimi / MiniMax / xAI / Ollama 等
+- 不支持视觉的模型改走纯文本高性价比路线（如 Mistral `mistral-medium-latest`）
+- 视觉能力标记重新校准，选择模型时会提示是否需要 vision
+
+### 稳定性
+
+- 修复若干 import 与 Dp 运算编译错误
+- 修复 `LiquidSlider`/`LiquidToggle` 导入与 `FontWeight` 缺失引用
+
+---
+
 # ClassLens AI v0.2.0 / 课镜 AI
 
 功能大完善：完整周课表、学期设置、课程编辑、外观与液态玻璃、教务系统导入全适配。
