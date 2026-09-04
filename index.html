@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ClassLens AI Android release information, provider guidance, privacy, and licenses." />
+  <meta name="description" content="ClassLens AI Android release: liquid-glass course schedule, AI import, and local-first privacy." />
   <title>ClassLens AI | Android Release</title>
   <link rel="stylesheet" href="assets/css/site.css" />
 </head>
@@ -11,7 +11,7 @@
   <div class="notice-bar">
     <div class="site-width notice-content">
       <span>ClassLens AI Android release channel</span>
-      <a href="#download">Release manifest</a>
+      <a href="#download">View manifest</a>
     </div>
   </div>
 
@@ -22,8 +22,17 @@
         <span>ClassLens AI</span>
       </a>
 
-      <nav class="site-nav" aria-label="Release navigation">
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Release navigation">
         <a href="#download">Download</a>
+        <a href="#features">Features</a>
         <a href="#providers">Providers</a>
         <a href="#privacy">Privacy</a>
         <a href="#licenses">Licenses</a>
@@ -33,49 +42,107 @@
 
   <main id="top">
     <section class="hero-section">
+      <div class="hero-blob one" aria-hidden="true"></div>
+      <div class="hero-blob two" aria-hidden="true"></div>
+      <div class="hero-blob three" aria-hidden="true"></div>
+
       <div class="site-width hero-grid">
-        <div class="hero-copy">
-          <p class="kicker">ANDROID STUDY WORKSPACE</p>
-          <h1>Class material, reviewed with context.</h1>
+        <div class="hero-copy reveal">
+          <p class="kicker">AI-Powered Course Schedule</p>
+          <h1>Your classes, seen clearly.</h1>
           <p class="hero-summary">
-            ClassLens AI brings traditional course-material import and provider-guided analysis into one focused Android workflow.
-            Generated study help should always be checked against the original material.
+            ClassLens AI combines a local-first timetable with optional AI-assisted import.
+            Bring in screenshots, PDFs, or existing files, review the preview, and keep your schedule on your device.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#download">View release details</a>
-            <a class="text-link" href="#import">Read import guidance</a>
+            <a class="button button-primary" href="#download">Download APK</a>
+            <a class="button button-outline" href="#features">Explore features</a>
           </div>
         </div>
 
-        <aside class="release-brief" aria-label="Current release status">
-          <p class="release-brief-label">CURRENT RELEASE</p>
-          <strong data-release-field="version">vX.Y.Z</strong>
-          <span data-release-field="status">Metadata pending</span>
-          <dl>
-            <div>
-              <dt>Published</dt>
-              <dd data-release-field="publishedAt">YYYY-MM-DD</dd>
+        <div class="hero-visual reveal">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="assets/images/screenshots/schedule.png" alt="ClassLens AI weekly schedule screen" loading="eager" />
             </div>
-            <div>
-              <dt>Minimum Android</dt>
-              <dd data-release-field="minimumAndroid">Android XX+</dd>
-            </div>
-          </dl>
-        </aside>
+            <div class="phone-reflection"></div>
+          </div>
+
+          <aside class="release-brief" aria-label="Current release status">
+            <p class="release-brief-label">CURRENT RELEASE</p>
+            <strong data-release-field="version">vX.Y.Z</strong>
+            <span data-release-field="status">Metadata pending</span>
+            <dl>
+              <div>
+                <dt>Published</dt>
+                <dd data-release-field="publishedAt">YYYY-MM-DD</dd>
+              </div>
+              <div>
+                <dt>Minimum Android</dt>
+                <dd data-release-field="minimumAndroid">Android XX+</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
       </div>
     </section>
 
-    <section id="download" class="release-section" aria-labelledby="release-heading">
-      <div class="site-width release-layout">
-        <div class="section-heading section-heading-light">
-          <p class="kicker">RELEASE MANIFEST</p>
-          <h2 id="release-heading">Get the Android package.</h2>
+    <section id="features" class="section-pad light-section">
+      <div class="site-width">
+        <div class="section-heading reveal">
+          <p class="kicker">Features</p>
+          <h2>Built around your actual workflow.</h2>
           <p>
-            Release values are shown here from a single local manifest. Verify the file hash before installing any APK obtained outside an app store.
+            The core idea is simple: your timetable lives locally, and AI is only there when you explicitly ask for help importing or parsing material.
           </p>
         </div>
 
-        <div class="download-panel">
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-shot">
+              <img src="assets/images/screenshots/schedule.png" alt="Weekly schedule view" loading="lazy" />
+            </div>
+            <div class="feature-body">
+              <h3>Weekly schedule, at a glance</h3>
+              <p>Time axis, weekday columns, current-time indicator, and adaptive layout that scrolls gracefully on small screens.</p>
+            </div>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-shot">
+              <img src="assets/images/screenshots/import.png" alt="AI import hub" loading="lazy" />
+            </div>
+            <div class="feature-body">
+              <h3>AI import, BYOK</h3>
+              <p>Send screenshots or documents to a model you configure. No built-in key, no silent uploads — you choose the provider.</p>
+            </div>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-shot">
+              <img src="assets/images/screenshots/appearance.png" alt="Appearance settings" loading="lazy" />
+            </div>
+            <div class="feature-body">
+              <h3>Liquid-glass appearance</h3>
+              <p>Adjust blur, opacity, palette, and background. Deeply integrated with Kyant0 AndroidLiquidGlass components.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="section-pad release-section">
+      <div class="site-width release-layout">
+        <div class="section-heading reveal">
+          <p class="kicker">Release manifest</p>
+          <h2>Get the Android package.</h2>
+          <p>
+            All release values come from a single local manifest. Verify the SHA-256 before installing any APK obtained outside an app store.
+          </p>
+        </div>
+
+        <div class="download-panel reveal">
           <div class="download-panel-header">
             <div>
               <p class="eyebrow-light">ANDROID APK</p>
@@ -111,18 +178,18 @@
       </div>
     </section>
 
-    <section id="import" class="content-section" aria-labelledby="import-heading">
+    <section id="import" class="section-pad alt-section">
       <div class="site-width split-layout">
-        <div class="section-heading">
-          <p class="kicker">IMPORT GUIDANCE</p>
-          <h2 id="import-heading">Start with the original material.</h2>
+        <div class="section-heading reveal">
+          <p class="kicker">Import guidance</p>
+          <h2>Start with the original material.</h2>
           <p>
             Keep a copy of the source document and use traditional import when you need to bring existing course files into your study workflow.
           </p>
         </div>
 
         <div class="guidance-list">
-          <article class="guidance-item">
+          <article class="guidance-item reveal">
             <p class="item-number">01</p>
             <div>
               <h3>Traditional import</h3>
@@ -131,7 +198,7 @@
               </p>
             </div>
           </article>
-          <article class="guidance-item warning-item">
+          <article class="guidance-item warning-item reveal">
             <p class="item-number">02</p>
             <div>
               <h3>Visual-model warning</h3>
@@ -140,7 +207,7 @@
               </p>
             </div>
           </article>
-          <article class="guidance-item">
+          <article class="guidance-item reveal">
             <p class="item-number">03</p>
             <div>
               <h3>Share deliberately</h3>
@@ -153,17 +220,17 @@
       </div>
     </section>
 
-    <section id="providers" class="content-section content-section-alt" aria-labelledby="providers-heading">
+    <section id="providers" class="section-pad light-section">
       <div class="site-width">
-        <div class="section-heading section-heading-wide">
-          <p class="kicker">PROVIDER MATRIX</p>
-          <h2 id="providers-heading">Know which route handles your material.</h2>
+        <div class="section-heading section-heading-wide reveal">
+          <p class="kicker">Provider matrix</p>
+          <h2>Know which route handles your material.</h2>
           <p>
             Availability depends on the provider and model you configure. The matrix distinguishes local handling from requests that may send selected content to a remote provider.
           </p>
         </div>
 
-        <div class="matrix-wrap" tabindex="0">
+        <div class="matrix-wrap reveal" tabindex="0">
           <table>
             <caption>ClassLens AI data routes</caption>
             <thead>
@@ -205,30 +272,30 @@
       </div>
     </section>
 
-    <section id="privacy" class="content-section" aria-labelledby="privacy-heading">
+    <section id="privacy" class="section-pad alt-section">
       <div class="site-width policy-layout">
-        <div class="section-heading">
-          <p class="kicker">PRIVACY</p>
-          <h2 id="privacy-heading">A release page without hidden credentials.</h2>
+        <div class="section-heading reveal">
+          <p class="kicker">Privacy</p>
+          <h2>A release page without hidden credentials.</h2>
           <p>
             This static site contains no API keys, does not ask for provider credentials, and does not send your class material anywhere.
           </p>
         </div>
 
         <div class="policy-columns">
-          <article class="policy-item">
+          <article class="policy-item reveal">
             <h3>Provider boundaries</h3>
             <p>
               When you choose to submit content through a configured AI route, that provider's terms, retention practices, and privacy policy govern the submitted content.
             </p>
           </article>
-          <article class="policy-item">
+          <article class="policy-item reveal">
             <h3>Release-page scope</h3>
             <p>
               The release page is informational. It does not collect uploads, account data, or provider keys, and it has no embedded analytics or third-party media.
             </p>
           </article>
-          <article class="policy-item">
+          <article class="policy-item reveal">
             <h3>Your review</h3>
             <p>
               Check the APK source and SHA-256 before installation, and only use materials you have the right to process.
@@ -238,20 +305,20 @@
       </div>
     </section>
 
-    <section id="licenses" class="content-section license-section" aria-labelledby="licenses-heading">
+    <section id="licenses" class="section-pad-sm license-section">
       <div class="site-width split-layout">
-        <div class="section-heading">
-          <p class="kicker">LICENSES</p>
-          <h2 id="licenses-heading">License information belongs with the build.</h2>
+        <div class="section-heading reveal">
+          <p class="kicker">Licenses</p>
+          <h2>License information belongs with the build.</h2>
           <p>
-            The final APK should include its applicable ClassLens license and third-party notices. Until the public release metadata is set, this page makes no claim about the app license.
+            The final APK includes its applicable ClassLens license and third-party notices. Verify the metadata below against the published build.
           </p>
         </div>
 
         <div class="license-notes">
-          <p><strong>ClassLens application license</strong><span data-release-field="license">License information pending release</span></p>
-          <p><strong>Third-party notices</strong><span>To be published with the final build and source distribution, where applicable.</span></p>
-          <p><strong>Model and provider terms</strong><span>Reviewed separately under the terms of the provider and model you choose.</span></p>
+          <p class="reveal"><strong>ClassLens application license</strong><span data-release-field="license">License information pending release</span></p>
+          <p class="reveal"><strong>Third-party notices</strong><span>Published with the final build and source distribution, where applicable.</span></p>
+          <p class="reveal"><strong>Model and provider terms</strong><span>Reviewed separately under the terms of the provider and model you choose.</span></p>
         </div>
       </div>
     </section>
@@ -264,7 +331,14 @@
     </div>
   </footer>
 
+  <a href="#top" class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
+
   <script src="assets/js/release-config.js"></script>
   <script src="assets/js/release.js"></script>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
