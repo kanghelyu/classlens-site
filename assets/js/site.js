@@ -179,7 +179,8 @@
       licThirdDesc: "Published with the final build and source distribution, where applicable.",
       licModelTitle: "Model and provider terms",
       licModelDesc: "Reviewed separately under the terms of the provider and model you choose.",
-      footerDesc: "Static Android release information"
+      footerDesc: "Static Android release information",
+      copyright: "© 2026 kanghelyu. All rights reserved."
     },
     zh: {
       docTitle: "课镜 AI | 让你的课程，一目了然。",
@@ -292,7 +293,8 @@
       licThirdDesc: "随最终构建与源码分发一并提供（如适用）。",
       licModelTitle: "模型与服务商条款",
       licModelDesc: "根据你选择的服务商与模型条款另行审阅。",
-      footerDesc: "Android 发布信息（静态站点）"
+      footerDesc: "Android 发布信息（静态站点）",
+      copyright: "© 2026 kanghelyu 保留所有权利。"
     }
   };
 

@@ -242,6 +242,7 @@ h1 em, h2 em { color: var(--brand-soft); font-family: "Instrument Serif", Georgi
 .footer-links { display: flex; gap: 21px; }
 .footer-links a:hover { color: var(--brand-soft); }
 .footer-note { justify-self: end; }
+.footer-copyright { grid-column: 1 / -1; justify-self: start; padding-top: 6px; border-top: 1px solid var(--line-light); }
 .back-to-top { position: fixed; right: 24px; bottom: 24px; z-index: 40; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--line-light); border-radius: 50%; background: rgba(37,31,27,.86); color: var(--paper); font-size: 1.1rem; opacity: 0; pointer-events: none; transform: translateY(14px); transition: opacity .25s ease, transform .25s ease, background .2s ease; }
 .back-to-top.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .back-to-top:hover { background: var(--brand); }
