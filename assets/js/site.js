@@ -1,7 +1,6 @@
 (function () {
   "use strict";
 
-  // Mobile nav
   const menuToggle = document.querySelector(".menu-toggle");
   const siteNav = document.getElementById("site-nav");
 
@@ -10,7 +9,6 @@
       const isOpen = siteNav.classList.toggle("is-open");
       menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
-
     siteNav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         siteNav.classList.remove("is-open");
@@ -19,114 +17,121 @@
     });
   }
 
-  // Scroll reveal
   const revealElements = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
-    revealElements.forEach((el) => observer.observe(el));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -36px 0px" });
+    revealElements.forEach((element) => observer.observe(element));
   } else {
-    revealElements.forEach((el) => el.classList.add("is-visible"));
+    revealElements.forEach((element) => element.classList.add("is-visible"));
   }
 
-  // Active nav link on scroll
-  const sections = document.querySelectorAll("main section[id]");
-  const navLinks = document.querySelectorAll(".site-nav a[href^='#']");
-
+  const navLinks = Array.from(document.querySelectorAll(".site-nav a[href^='#']"));
+  const sections = Array.from(document.querySelectorAll("main section[id]"));
   function setActiveNav() {
-    const scrollPos = window.scrollY + 120;
+    const scrollPosition = window.scrollY + 150;
     let current = "";
     sections.forEach((section) => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
-        current = section.getAttribute("id");
-      }
+      if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) current = section.id;
     });
-
-    navLinks.forEach((link) => {
-      link.classList.remove("is-active");
-      if (link.getAttribute("href") === "#" + current) {
-        link.classList.add("is-active");
-      }
-    });
+    navLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${current}`));
   }
 
-  // Back-to-top visibility
   const backToTop = document.querySelector(".back-to-top");
   function handleScroll() {
     setActiveNav();
-    if (backToTop) {
-      backToTop.classList.toggle("is-visible", window.scrollY > 500);
-    }
+    if (backToTop) backToTop.classList.toggle("is-visible", window.scrollY > 520);
   }
-
   window.addEventListener("scroll", handleScroll, { passive: true });
   handleScroll();
 
-  // Subtle phone tilt on desktop
   const phoneFrame = document.querySelector(".phone-frame");
   const heroVisual = document.querySelector(".hero-visual");
-  if (phoneFrame && heroVisual && window.matchMedia("(pointer: fine)").matches) {
-    heroVisual.addEventListener("mousemove", (e) => {
+  if (phoneFrame && heroVisual && window.matchMedia("(pointer: fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroVisual.addEventListener("mousemove", (event) => {
       const rect = heroVisual.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      phoneFrame.style.transform = `rotateY(${x * -12}deg) rotateX(${y * 8}deg)`;
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      phoneFrame.style.animation = "none";
+      phoneFrame.style.transform = `translateY(-4px) rotateY(${x * -10}deg) rotateX(${y * 7}deg)`;
     });
-
     heroVisual.addEventListener("mouseleave", () => {
+      phoneFrame.style.animation = "";
       phoneFrame.style.transform = "";
     });
   }
 
-  /* ---- Bilingual (中文 / English) language toggle ---- */
   const I18N = {
     en: {
-      docTitle: "ClassLens AI | Android Release",
-      metaDesc: "ClassLens AI Android release: liquid-glass course schedule, AI import, and local-first privacy.",
+      docTitle: "ClassLens AI | Your classes, seen clearly.",
+      metaDesc: "ClassLens AI is a local-first timetable with optional AI-assisted import.",
+      ogTitle: "ClassLens AI | Your classes, seen clearly.",
+      ogDesc: "A local-first timetable with optional AI-assisted import.",
       noticeChannel: "ClassLens AI Android release channel",
-      noticeManifest: "View manifest",
+      noticeManifest: "View the current build",
       brandName: "ClassLens AI",
+      navProduct: "Product",
+      navFlow: "Flow",
+      navProviders: "Routes",
+      navTrust: "Trust",
       navDownload: "Download",
-      features: "Features",
-      navProviders: "Providers",
-      privacy: "Privacy",
-      licenses: "Licenses",
-      heroKicker: "AI-Powered Course Schedule",
-      heroTitle: "Your classes, seen clearly.",
-      heroSummary: "ClassLens AI combines a local-first timetable with optional AI-assisted import. Bring in screenshots, PDFs, or existing files, review the preview, and keep your schedule on your device.",
+      heroKicker: "A calmer way to carry your semester",
+      heroTitle: "Your classes,<br><em>seen clearly.</em>",
+      heroSummary: "A local-first timetable for the everyday rhythm of campus — with optional AI assistance when the source material is messy.",
       heroDownload: "Download APK",
-      heroExplore: "Explore features",
+      heroExplore: "See how it works <span aria-hidden=\"true\">↘</span>",
+      heroFootnote: "No account. No built-in key. Your review stays in the loop.",
       briefLabel: "CURRENT RELEASE",
       labelPublished: "Published",
       labelMinAndroid: "Minimum Android",
-      featTitle: "Built around your actual workflow.",
-      featDesc: "The core idea is simple: your timetable lives locally, and AI is only there when you explicitly ask for help importing or parsing material.",
+      chipLocal: "local-first",
+      chipReview: "review first",
+      heroMetaOne: "Built for Android 8+",
+      heroMetaTwo: "Import screenshots, PDFs, or existing files",
+      heroMetaThree: "Keep the schedule on your device",
+      proof1Title: "Local by default",
+      proof1Desc: "Your timetable lives on your device, not in a dashboard.",
+      proof2Title: "Preview before write",
+      proof2Desc: "Imported results are something to check, not blindly accept.",
+      proof3Title: "Bring your own route",
+      proof3Desc: "AI is optional, explicit, and configured by you.",
+      flowKicker: "The ClassLens flow",
+      flowTitle: "From source material<br><em>to a week you can trust.</em>",
+      flowDesc: "The app stays simple where it should. Bring in what you already have, look over the result, then shape the view around the way you actually study.",
+      flowTab1: "Import",
+      flowTab2: "Review",
+      flowTab3: "Make it yours",
+      flowPanel1Kicker: "Bring the source with you",
+      flowPanel1Note: "Traditional file import stays available when you want everything offline.",
+      flowPanel2Kicker: "Keep your judgment in the loop",
+      flowPanel2Note: "Review the preview against the original before you rely on it.",
+      flowPanel3Kicker: "Make the surface feel like yours",
+      flowPanel3Note: "A calm visual system for a week that is already full.",
       feat1Title: "Weekly schedule, at a glance",
       feat1Desc: "Time axis, weekday columns, current-time indicator, and adaptive layout that scrolls gracefully on small screens.",
       feat2Title: "AI import, BYOK",
       feat2Desc: "Send screenshots or documents to a model you configure. No built-in key, no silent uploads — you choose the provider.",
       feat3Title: "Liquid-glass appearance",
       feat3Desc: "Adjust blur, opacity, palette, and background. Deeply integrated with Kyant0 AndroidLiquidGlass components.",
-      dlKicker: "Release manifest",
-      dlTitle: "Get the Android package.",
+      dlKicker: "The current build",
+      dlTitle: "A small download.<br><em>A clear starting point.</em>",
       dlDesc: "All release values come from a single local manifest. Verify the SHA-256 before installing any APK obtained outside an app store.",
       dlApkLabel: "ANDROID APK",
       labelSize: "Package size",
       labelSha: "SHA-256",
+      copySha: "Copy",
+      copySuccess: "Copied",
+      copyFailure: "Select to copy",
       dlDownload: "Download APK",
       dlNotes: "Read release notes",
-      impKicker: "Import guidance",
+      downloadAssurance: "The release page contains no API keys, uploads, or embedded analytics.",
+      impKicker: "Before you send anything",
       impTitle: "Start with the original material.",
       impDesc: "Keep a copy of the source document and use traditional import when you need to bring existing course files into your study workflow.",
       imp1Title: "Traditional import",
@@ -135,11 +140,11 @@
       imp2Desc: "Vision-capable models can miss small text, handwriting, tables, equation layout, rotations, and context across pages. Treat visual output as assistance, not an authoritative reading.",
       imp3Title: "Share deliberately",
       imp3Desc: "Only submit material you are allowed to share. Remove sensitive personal information before sending text, pages, or images to a remote AI provider.",
-      provKicker: "Provider matrix",
-      provTitle: "Know which route handles your material.",
-      provDesc: "Availability depends on the provider and model you configure. The matrix distinguishes local handling from requests that may send selected content to a remote provider.",
-      tableCaption: "ClassLens AI data routes",
-      thRoute: "Route",
+      provKicker: "Data routes",
+      provTitle: "Know what leaves the device.",
+      provDesc: "Availability depends on the provider and model you configure. Each route makes the boundary visible before you use it.",
+      routeLocalBadge: "LOCAL",
+      routeRemoteBadge: "REMOTE",
       thProviderReq: "Provider requirement",
       thLeaves: "What may leave the device",
       thLimitation: "Important limitation",
@@ -158,6 +163,7 @@
       rowOffline: "Offline review",
       cellOff1: "No provider transfer is involved.",
       cellOff2: "AI-generated analysis is unavailable without a configured provider route.",
+      privacy: "Trust, in plain language",
       privTitle: "A release page without hidden credentials.",
       privDesc: "This static site contains no API keys, does not ask for provider credentials, and does not send your class material anywhere.",
       priv1Title: "Provider boundaries",
@@ -166,74 +172,99 @@
       priv2Desc: "The release page is informational. It does not collect uploads, account data, or provider keys, and it has no embedded analytics or third-party media.",
       priv3Title: "Your review",
       priv3Desc: "Check the APK source and SHA-256 before installation, and only use materials you have the right to process.",
+      licenses: "Licenses",
       licTitle: "License information belongs with the build.",
-      licDesc: "The final APK includes its applicable ClassLens license and third-party notices. Verify the metadata below against the published build.",
       licAppTitle: "ClassLens application license",
       licThirdTitle: "Third-party notices",
       licThirdDesc: "Published with the final build and source distribution, where applicable.",
       licModelTitle: "Model and provider terms",
       licModelDesc: "Reviewed separately under the terms of the provider and model you choose.",
-      footerDesc: "Static Android release information",
-      importHintTag: "Import timetable",
-      importHintDesc: '① In <b>Edu/Admin System Import</b>, <b>select your school</b> — it auto-opens that school’s login page → ② After logging in, open <b>“This Semester / My Schedule”</b> → ③ Stay on that page and tap <b>“Capture current page &amp; import”</b>. <span class="muted">Your account password is submitted only inside the WebView and is never saved by the app.</span>',
-      importHintAria: "How to import your timetable correctly"
+      footerDesc: "Static Android release information"
     },
     zh: {
-      docTitle: "课镜 AI | Android 发布",
-      metaDesc: "课镜 AI Android 发布：液态玻璃课表、AI 导入，以及本地优先的隐私保护。",
+      docTitle: "课镜 AI | 让你的课程，一目了然。",
+      metaDesc: "课镜 AI 是一款本地优先的课表，支持可选的 AI 辅助导入。",
+      ogTitle: "课镜 AI | 让你的课程，一目了然。",
+      ogDesc: "本地优先的课表，配合可选的 AI 辅助导入。",
       noticeChannel: "课镜 AI Android 发布渠道",
-      noticeManifest: "查看发布清单",
+      noticeManifest: "查看当前构建",
       brandName: "课镜 AI",
+      navProduct: "产品",
+      navFlow: "流程",
+      navProviders: "路径",
+      navTrust: "信任",
       navDownload: "下载",
-      features: "功能",
-      navProviders: "服务商",
-      privacy: "隐私",
-      licenses: "许可",
-      heroKicker: "AI 智能课表",
-      heroTitle: "让你的课程，一目了然。",
-      heroSummary: "课镜 AI 采用本地优先的课表，并支持可选的 AI 辅助导入。你可以导入截图、PDF 或已有文件，核对预览后，让课表始终留在你的设备上。",
+      heroKicker: "让学期节奏，安静地归位",
+      heroTitle: "让你的课程，<br><em>一目了然。</em>",
+      heroSummary: "一款本地优先的课表，陪你应对校园日常；当原始资料杂乱时，再按需调用 AI 辅助整理。",
       heroDownload: "下载 APK",
-      heroExplore: "了解功能",
+      heroExplore: "了解使用流程 <span aria-hidden=\"true\">↘</span>",
+      heroFootnote: "无需账号。没有内置密钥。导入结果由你亲自核对。",
       briefLabel: "当前版本",
       labelPublished: "发布日期",
       labelMinAndroid: "最低 Android 版本",
-      featTitle: "围绕你真实的使用流程打造。",
-      featDesc: "核心思路很简单：你的课表保存在本地，AI 只在你明确要求导入或解析资料时才介入。",
-      feat1Title: "周课表，一目了然",
-      feat1Desc: "时间轴、星期列、当前时间指示线，以及在小屏幕上也能流畅滚动的自适应布局。",
+      chipLocal: "本地优先",
+      chipReview: "先核对",
+      heroMetaOne: "支持 Android 8+",
+      heroMetaTwo: "导入截图、PDF 或已有文件",
+      heroMetaThree: "让课表留在你的设备上",
+      proof1Title: "默认保存在本地",
+      proof1Desc: "你的课表属于你的设备，而不是某个后台面板。",
+      proof2Title: "写入前先预览",
+      proof2Desc: "导入结果需要核对，而不是直接盲目接受。",
+      proof3Title: "自己选择路径",
+      proof3Desc: "AI 是可选、明确且由你配置的能力。",
+      flowKicker: "课镜 AI 的使用流程",
+      flowTitle: "从原始资料，<br><em>到值得信任的一周。</em>",
+      flowDesc: "该简单的地方保持简单。带上你已有的资料，先看一遍结果，再按真正的学习习惯调整课表。",
+      flowTab1: "导入",
+      flowTab2: "核对",
+      flowTab3: "定制",
+      flowPanel1Kicker: "把原始资料带进来",
+      flowPanel1Note: "想全程离线时，也可以使用传统文件导入。",
+      flowPanel2Kicker: "把判断留在流程里",
+      flowPanel2Note: "依赖结果前，先对照原始资料检查预览。",
+      flowPanel3Kicker: "让界面更像你的空间",
+      flowPanel3Note: "为已经很满的一周，留下一套平静的视觉系统。",
+      feat1Title: "周课表，一眼看清",
+      feat1Desc: "时间轴、星期列、当前时间指示线，以及在小屏幕上也能自然滚动的自适应布局。",
       feat2Title: "AI 导入，自带密钥（BYOK）",
-      feat2Desc: "将截图或文档发送给你自己配置的模型。没有内置密钥，也不会静默上传——由你来选择服务商。",
+      feat2Desc: "将截图或文档交给你自己配置的模型。没有内置密钥，也不会静默上传——服务商由你选择。",
       feat3Title: "液态玻璃外观",
       feat3Desc: "调节模糊、透明度、配色与背景。深度集成 Kyant0 AndroidLiquidGlass 组件。",
-      dlKicker: "发布清单",
-      dlTitle: "获取 Android 安装包。",
-      dlDesc: "所有发布信息都来自一份本地清单。安装任何应用商店之外的 APK 前，请先核对 SHA-256。",
+      dlKicker: "当前构建",
+      dlTitle: "下载很小。<br><em>开始很清楚。</em>",
+      dlDesc: "所有发布信息都来自一份本地清单。安装应用商店之外的 APK 前，请先核对 SHA-256。",
       dlApkLabel: "ANDROID APK",
       labelSize: "安装包大小",
       labelSha: "SHA-256",
+      copySha: "复制",
+      copySuccess: "已复制",
+      copyFailure: "请手动选择",
       dlDownload: "下载 APK",
       dlNotes: "查看发布说明",
-      impKicker: "导入指引",
+      downloadAssurance: "发布页不含 API 密钥、上传功能或内嵌分析。",
+      impKicker: "发送资料前",
       impTitle: "从原始资料开始。",
-      impDesc: "保留一份源文件副本，并在需要将已有课程文件纳入学习流程时使用传统导入。",
+      impDesc: "保留一份源文件副本；需要将已有课程文件纳入学习流程时，可以使用传统导入。",
       imp1Title: "传统导入",
       imp1Desc: "从设备存储中选择已有资料，在用于学习或提交前，对照源文件核对导入结果。",
       imp2Title: "视觉模型提醒",
       imp2Desc: "具备视觉能力的模型可能遗漏小字、手写、表格、公式排版、旋转角度以及跨页上下文。请将视觉输出视为辅助，而非权威解读。",
       imp3Title: "谨慎分享",
       imp3Desc: "只提交你有权分享的资料。在向远程 AI 服务商发送文字、页面或图片前，请先移除敏感个人信息。",
-      provKicker: "服务商矩阵",
-      provTitle: "了解哪条路径处理你的资料。",
-      provDesc: "可用性取决于你所配置的服务商与模型。该矩阵区分本地处理方式，以及可能将所选内容发送至远程服务商的请求。",
-      tableCaption: "课镜 AI 数据流转路径",
-      thRoute: "路径",
+      provKicker: "数据路径",
+      provTitle: "了解什么会离开设备。",
+      provDesc: "可用性取决于你配置的服务商与模型。每条路径都会在使用前把边界说清楚。",
+      routeLocalBadge: "本地",
+      routeRemoteBadge: "远程",
       thProviderReq: "服务商要求",
       thLeaves: "可能离开设备的内容",
       thLimitation: "重要限制",
       rowTraditional: "传统导入",
       valNone: "无",
       cellTrad1: "选择源资料无需向 AI 服务商发起请求。",
-      cellTrad2: "导入的内容仍需你核对完整性与格式。",
+      cellTrad2: "导入内容仍需你核对完整性与格式。",
       rowTextAi: "文本型 AI",
       cellText1: "由你选择的服务商与具备文本能力的模型",
       cellText2: "你明确提交用于分析的文本或片段。",
@@ -245,29 +276,28 @@
       rowOffline: "离线核对",
       cellOff1: "不涉及向服务商传输数据。",
       cellOff2: "未配置服务商路径时，无法使用 AI 生成的分析。",
+      privacy: "把信任说得直白",
       privTitle: "没有隐藏凭据的发布页。",
-      privDesc: "这个静态站点不含任何 API 密钥，不会索取服务商凭据，也不会将你的课程资料发送到任何地方。",
+      privDesc: "这个静态站点不含 API 密钥，不会索取服务商凭据，也不会将你的课程资料发送到任何地方。",
       priv1Title: "服务商边界",
       priv1Desc: "当你选择通过已配置的 AI 路径提交内容时，该服务商的条款、留存策略与隐私政策将约束所提交的内容。",
       priv2Title: "发布页范围",
       priv2Desc: "发布页仅用于展示信息。它不会收集上传内容、账户数据或服务商密钥，也不包含任何内嵌的分析或第三方媒体。",
       priv3Title: "你的核对",
       priv3Desc: "安装前请核对 APK 来源与 SHA-256，并且只使用你有权处理的资料。",
+      licenses: "许可",
       licTitle: "许可信息随构建版本提供。",
-      licDesc: "最终 APK 包含适用的 ClassLens 许可与第三方声明。请对照已发布的构建核对下方元数据。",
       licAppTitle: "ClassLens 应用许可",
       licThirdTitle: "第三方声明",
       licThirdDesc: "随最终构建与源码分发一并提供（如适用）。",
       licModelTitle: "模型与服务商条款",
       licModelDesc: "根据你选择的服务商与模型条款另行审阅。",
-      footerDesc: "Android 发布信息（静态站点）",
-      importHintTag: "导入课表",
-      importHintDesc: '① 在「教务系统导入」里<b>选学校</b>，自动跳转该校登录页 → ② 登录后进入<b>「本学期课表 / 个人课表」</b> → ③ 停留在该页面，点<b>「抓取当前页并导入」</b>。<span class="muted">账号密码仅在 WebView 内提交，不会保存到应用。</span>',
-      importHintAria: "如何正确导入课表"
+      footerDesc: "Android 发布信息（静态站点）"
     }
   };
 
   const LANG_KEY = "classlens-lang";
+  let currentLang = "en";
 
   function getInitialLang() {
     const saved = localStorage.getItem(LANG_KEY);
@@ -275,40 +305,82 @@
     return (navigator.language || "en").toLowerCase().startsWith("zh") ? "zh" : "en";
   }
 
+  function applyI18nValue(element, value) {
+    if (value == null) return;
+    if (/<[a-z][\s\S]*>/i.test(value)) element.innerHTML = value;
+    else element.textContent = value;
+  }
+
   function setLang(lang) {
     const dict = I18N[lang];
     if (!dict) return;
-
+    currentLang = lang;
     document.documentElement.lang = lang;
-
-    document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n");
-      if (dict[key] != null) el.innerHTML = dict[key];
-    });
-
-    document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
-      const key = el.getAttribute("data-i18n-aria");
-      if (dict[key] != null) el.setAttribute("aria-label", dict[key]);
-    });
-
+    document.querySelectorAll("[data-i18n]").forEach((element) => applyI18nValue(element, dict[element.dataset.i18n]));
     if (dict.docTitle) document.title = dict.docTitle;
     const meta = document.querySelector('meta[name="description"]');
     if (meta && dict.metaDesc) meta.setAttribute("content", dict.metaDesc);
-
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogTitle && dict.ogTitle) ogTitle.setAttribute("content", dict.ogTitle);
+    if (ogDesc && dict.ogDesc) ogDesc.setAttribute("content", dict.ogDesc);
     const toggle = document.getElementById("lang-toggle");
     if (toggle) {
       toggle.textContent = lang === "zh" ? "EN" : "中文";
       toggle.setAttribute("aria-label", lang === "zh" ? "Switch to English" : "切换到中文");
     }
-
+    document.querySelectorAll("[data-copy-sha]").forEach((button) => { button.textContent = dict.copySha; });
     localStorage.setItem(LANG_KEY, lang);
   }
 
   const langToggle = document.getElementById("lang-toggle");
-  if (langToggle) {
-    langToggle.addEventListener("click", () => {
-      const current = document.documentElement.lang === "zh" ? "zh" : "en";
-      setLang(current === "zh" ? "en" : "zh");
+  if (langToggle) langToggle.addEventListener("click", () => setLang(currentLang === "zh" ? "en" : "zh"));
+
+  const workflowTabs = Array.from(document.querySelectorAll("[data-workflow-tab]"));
+  const workflowPanels = Array.from(document.querySelectorAll("[data-workflow-panel]"));
+  function activateWorkflow(index, moveFocus) {
+    workflowTabs.forEach((tab, tabIndex) => {
+      const active = tabIndex === index;
+      tab.classList.toggle("is-active", active);
+      tab.setAttribute("aria-selected", String(active));
+      tab.setAttribute("tabindex", active ? "0" : "-1");
+    });
+    workflowPanels.forEach((panel, panelIndex) => {
+      const active = panelIndex === index;
+      panel.hidden = !active;
+      panel.classList.toggle("is-active", active);
+    });
+    if (moveFocus && workflowTabs[index]) workflowTabs[index].focus();
+  }
+  workflowTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => activateWorkflow(index, false));
+    tab.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowRight" && event.key !== "ArrowDown" && event.key !== "ArrowLeft" && event.key !== "ArrowUp") return;
+      event.preventDefault();
+      const direction = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+      activateWorkflow((index + direction + workflowTabs.length) % workflowTabs.length, true);
+    });
+  });
+
+  const copyButton = document.querySelector("[data-copy-sha]");
+  const shaElement = document.querySelector('[data-release-field="sha256"]');
+  const copyFeedback = document.querySelector("[data-copy-feedback]");
+  if (copyButton && shaElement) {
+    copyButton.addEventListener("click", async () => {
+      const value = shaElement.textContent.trim();
+      let copied = false;
+      if (navigator.clipboard && window.isSecureContext) {
+        try { await navigator.clipboard.writeText(value); copied = true; } catch (error) { copied = false; }
+      }
+      if (!copied) {
+        const range = document.createRange();
+        range.selectNodeContents(shaElement);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+      if (copyFeedback) copyFeedback.textContent = I18N[currentLang][copied ? "copySuccess" : "copyFailure"];
+      window.setTimeout(() => { if (copyFeedback) copyFeedback.textContent = ""; }, 2200);
     });
   }
 

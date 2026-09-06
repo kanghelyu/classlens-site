@@ -3,325 +3,258 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ClassLens AI Android release: liquid-glass course schedule, AI import, and local-first privacy." />
+  <meta name="theme-color" content="#171411" />
+  <meta name="description" content="ClassLens AI Android release: a local-first timetable with optional AI-assisted import." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ClassLens AI | Your classes, seen clearly." />
+  <meta property="og:description" content="A local-first timetable with optional AI-assisted import." />
+  <meta property="og:url" content="https://classlens.kanghelyu.org/" />
+  <link rel="canonical" href="https://classlens.kanghelyu.org/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23e0715c'/%3E%3Cpath d='M18 19h28v8H27v10h16v8H27v10h-9V19Z' fill='%23fff8f3'/%3E%3C/svg%3E" />
   <title>ClassLens AI | Android Release</title>
   <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 <body>
   <div class="notice-bar">
     <div class="site-width notice-content">
-      <span data-i18n="noticeChannel">ClassLens AI Android release channel</span>
-      <a href="#download" data-i18n="noticeManifest">View manifest</a>
+      <span class="notice-message"><span class="notice-dot" aria-hidden="true"></span><span data-i18n="noticeChannel">ClassLens AI Android release channel</span></span>
+      <a class="notice-link" href="#download" data-i18n="noticeManifest">View the current build</a>
     </div>
   </div>
 
   <header class="site-header">
-      <div class="site-width header-content">
-        <a class="brand" href="#top" aria-label="ClassLens AI home">
-          <span class="brand-mark" aria-hidden="true">CL</span>
-          <span data-i18n="brandName">ClassLens AI</span>
-        </a>
+    <div class="site-width header-content">
+      <a class="brand" href="#product" aria-label="ClassLens AI home">
+        <span class="brand-mark" aria-hidden="true">CL</span>
+        <span class="brand-name" data-i18n="brandName">ClassLens AI</span>
+      </a>
 
-        <div class="header-actions">
-          <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-
-          <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch language">中文 / EN</button>
-
-          <nav id="site-nav" class="site-nav" aria-label="Release navigation">
-            <a href="#download" data-i18n="navDownload">Download</a>
-            <a href="#features" data-i18n="features">Features</a>
-            <a href="#providers" data-i18n="navProviders">Providers</a>
-            <a href="#privacy" data-i18n="privacy">Privacy</a>
-            <a href="#licenses" data-i18n="licenses">Licenses</a>
-          </nav>
-        </div>
+      <div class="header-actions">
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+        <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch language">中文</button>
+        <nav id="site-nav" class="site-nav" aria-label="Product navigation">
+          <a href="#product" data-i18n="navProduct">Product</a>
+          <a href="#flow" data-i18n="navFlow">Flow</a>
+          <a href="#providers" data-i18n="navProviders">Routes</a>
+          <a href="#trust" data-i18n="navTrust">Trust</a>
+          <a class="nav-download" href="#download" data-i18n="navDownload">Download</a>
+        </nav>
       </div>
+    </div>
   </header>
 
-  <main id="top">
-    <section class="hero-section">
-      <div class="hero-blob one" aria-hidden="true"></div>
-      <div class="hero-blob two" aria-hidden="true"></div>
-      <div class="hero-blob three" aria-hidden="true"></div>
-
-      <div class="site-width hero-grid">
+  <main>
+    <section id="product" class="hero-section">
+      <div class="hero-grid site-width">
         <div class="hero-copy reveal">
-          <p class="kicker" data-i18n="heroKicker">AI-Powered Course Schedule</p>
-          <h1 data-i18n="heroTitle">Your classes, seen clearly.</h1>
-          <p class="hero-summary" data-i18n="heroSummary">
-            ClassLens AI combines a local-first timetable with optional AI-assisted import.
-            Bring in screenshots, PDFs, or existing files, review the preview, and keep your schedule on your device.
-          </p>
+          <p class="eyebrow" data-i18n="heroKicker">A calmer way to carry your semester</p>
+          <h1 data-i18n="heroTitle">Your classes,<br /><em>seen clearly.</em></h1>
+          <p class="hero-summary" data-i18n="heroSummary">A local-first timetable for the everyday rhythm of campus — with optional AI assistance when the source material is messy.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#download" data-i18n="heroDownload">Download APK</a>
-            <a class="button button-outline" href="#features" data-i18n="heroExplore">Explore features</a>
+            <a class="button button-quiet" href="#flow" data-i18n="heroExplore">See how it works <span aria-hidden="true">↘</span></a>
+          </div>
+          <div class="hero-footnote">
+            <span class="tiny-mark" aria-hidden="true">✦</span>
+            <span data-i18n="heroFootnote">No account. No built-in key. Your review stays in the loop.</span>
           </div>
         </div>
 
         <div class="hero-visual reveal">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <img src="assets/images/screenshots/schedule.png" alt="ClassLens AI weekly schedule screen" loading="eager" />
+          <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+          <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+          <div class="phone-stage">
+            <div class="phone-shadow" aria-hidden="true"></div>
+            <div class="phone-frame">
+              <div class="phone-speaker" aria-hidden="true"></div>
+              <div class="phone-screen">
+                <img src="assets/images/screenshots/schedule.png" alt="ClassLens AI weekly schedule screen" loading="eager" />
+              </div>
+              <div class="phone-reflection" aria-hidden="true"></div>
             </div>
-            <div class="phone-reflection" aria-hidden="true"></div>
+          </div>
+          <aside class="release-float" aria-label="Current release status">
+            <div class="release-float-top">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span data-i18n="briefLabel">CURRENT RELEASE</span>
+            </div>
+            <strong data-release-field="version">vX.Y.Z</strong>
+            <span class="release-status" data-release-field="status">Metadata pending</span>
+            <div class="release-float-meta">
+              <span data-i18n="labelPublished">Published</span>
+              <strong data-release-field="publishedAt">YYYY-MM-DD</strong>
+            </div>
+          </aside>
+          <div class="hero-chip chip-local"><span aria-hidden="true">◌</span><span data-i18n="chipLocal">local-first</span></div>
+          <div class="hero-chip chip-review"><span aria-hidden="true">✓</span><span data-i18n="chipReview">review first</span></div>
+        </div>
+      </div>
+      <div class="hero-rule site-width" aria-hidden="true"></div>
+      <div class="hero-meta site-width">
+        <span data-i18n="heroMetaOne">Built for Android 8+</span>
+        <span data-i18n="heroMetaTwo">Import screenshots, PDFs, or existing files</span>
+        <span data-i18n="heroMetaThree">Keep the schedule on your device</span>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Product principles">
+      <div class="site-width proof-grid">
+        <article class="proof-item reveal">
+          <span class="proof-index">01</span>
+          <div><h2 data-i18n="proof1Title">Local by default</h2><p data-i18n="proof1Desc">Your timetable lives on your device, not in a dashboard.</p></div>
+        </article>
+        <article class="proof-item reveal">
+          <span class="proof-index">02</span>
+          <div><h2 data-i18n="proof2Title">Preview before write</h2><p data-i18n="proof2Desc">Imported results are something to check, not blindly accept.</p></div>
+        </article>
+        <article class="proof-item reveal">
+          <span class="proof-index">03</span>
+          <div><h2 data-i18n="proof3Title">Bring your own route</h2><p data-i18n="proof3Desc">AI is optional, explicit, and configured by you.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="flow" class="section section-paper workflow-section">
+      <div class="site-width">
+        <div class="section-intro section-intro-split reveal">
+          <div>
+            <p class="eyebrow eyebrow-dark" data-i18n="flowKicker">The ClassLens flow</p>
+            <h2 data-i18n="flowTitle">From source material<br /><em>to a week you can trust.</em></h2>
+          </div>
+          <p data-i18n="flowDesc">The app stays simple where it should. Bring in what you already have, look over the result, then shape the view around the way you actually study.</p>
+        </div>
+
+        <div class="workflow-shell reveal">
+          <div class="workflow-tabs" role="tablist" aria-label="ClassLens workflow">
+            <button class="workflow-tab is-active" id="workflow-tab-0" type="button" role="tab" aria-selected="true" aria-controls="workflow-panel-0" data-workflow-tab="0">
+              <span class="tab-number">01</span><span data-i18n="flowTab1">Import</span><span class="tab-arrow" aria-hidden="true">↗</span>
+            </button>
+            <button class="workflow-tab" id="workflow-tab-1" type="button" role="tab" aria-selected="false" aria-controls="workflow-panel-1" data-workflow-tab="1" tabindex="-1">
+              <span class="tab-number">02</span><span data-i18n="flowTab2">Review</span><span class="tab-arrow" aria-hidden="true">↗</span>
+            </button>
+            <button class="workflow-tab" id="workflow-tab-2" type="button" role="tab" aria-selected="false" aria-controls="workflow-panel-2" data-workflow-tab="2" tabindex="-1">
+              <span class="tab-number">03</span><span data-i18n="flowTab3">Make it yours</span><span class="tab-arrow" aria-hidden="true">↗</span>
+            </button>
           </div>
 
-          <aside class="release-brief" aria-label="Current release status">
-            <p class="release-brief-label" data-i18n="briefLabel">CURRENT RELEASE</p>
-            <strong data-release-field="version">vX.Y.Z</strong>
-            <span data-release-field="status">Metadata pending</span>
-            <dl>
-              <div>
-                <dt data-i18n="labelPublished">Published</dt>
-                <dd data-release-field="publishedAt">YYYY-MM-DD</dd>
+          <div class="workflow-panels">
+            <article class="workflow-panel is-active" id="workflow-panel-0" role="tabpanel" aria-labelledby="workflow-tab-0" data-workflow-panel="0">
+              <div class="workflow-copy">
+                <p class="panel-kicker" data-i18n="flowPanel1Kicker">Bring the source with you</p>
+                <h3 data-i18n="feat2Title">AI import, BYOK</h3>
+                <p data-i18n="feat2Desc">Send screenshots or documents to a model you configure. No built-in key, no silent uploads — you choose the provider.</p>
+                <div class="panel-note"><span class="note-icon" aria-hidden="true">↳</span><span data-i18n="flowPanel1Note">Traditional file import stays available when you want everything offline.</span></div>
               </div>
-              <div>
-                <dt data-i18n="labelMinAndroid">Minimum Android</dt>
-                <dd data-release-field="minimumAndroid">Android XX+</dd>
+              <div class="workflow-shot workflow-shot-import"><img src="assets/images/screenshots/import.png" alt="Import hub with AI and edu-system import" loading="lazy" /></div>
+            </article>
+            <article class="workflow-panel" id="workflow-panel-1" role="tabpanel" aria-labelledby="workflow-tab-1" data-workflow-panel="1" hidden>
+              <div class="workflow-copy">
+                <p class="panel-kicker" data-i18n="flowPanel2Kicker">Keep your judgment in the loop</p>
+                <h3 data-i18n="feat1Title">Weekly schedule, at a glance</h3>
+                <p data-i18n="feat1Desc">Time axis, weekday columns, current-time indicator, and adaptive layout that scrolls gracefully on small screens.</p>
+                <div class="panel-note"><span class="note-icon" aria-hidden="true">✓</span><span data-i18n="flowPanel2Note">Review the preview against the original before you rely on it.</span></div>
               </div>
-            </dl>
-          </aside>
+              <div class="workflow-shot workflow-shot-schedule"><img src="assets/images/screenshots/schedule.png" alt="Weekly schedule view" loading="lazy" /></div>
+            </article>
+            <article class="workflow-panel" id="workflow-panel-2" role="tabpanel" aria-labelledby="workflow-tab-2" data-workflow-panel="2" hidden>
+              <div class="workflow-copy">
+                <p class="panel-kicker" data-i18n="flowPanel3Kicker">Make the surface feel like yours</p>
+                <h3 data-i18n="feat3Title">Liquid-glass appearance</h3>
+                <p data-i18n="feat3Desc">Adjust blur, opacity, palette, and background. Deeply integrated with Kyant0 AndroidLiquidGlass components.</p>
+                <div class="panel-note"><span class="note-icon" aria-hidden="true">✦</span><span data-i18n="flowPanel3Note">A calm visual system for a week that is already full.</span></div>
+              </div>
+              <div class="workflow-shot workflow-shot-appearance"><img src="assets/images/screenshots/appearance.png" alt="Appearance settings" loading="lazy" /></div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="features" class="section-pad light-section">
-      <div class="site-width">
-        <div class="section-heading reveal">
-          <p class="kicker" data-i18n="features">Features</p>
-          <h2 data-i18n="featTitle">Built around your actual workflow.</h2>
-          <p data-i18n="featDesc">
-            The core idea is simple: your timetable lives locally, and AI is only there when you explicitly ask for help importing or parsing material.
-          </p>
+    <section id="download" class="section download-section">
+      <div class="download-glow" aria-hidden="true"></div>
+      <div class="site-width download-layout">
+        <div class="download-copy reveal">
+          <p class="eyebrow" data-i18n="dlKicker">The current build</p>
+          <h2 data-i18n="dlTitle">A small download.<br /><em>A clear starting point.</em></h2>
+          <p data-i18n="dlDesc">All release values come from a single local manifest. Verify the SHA-256 before installing any APK obtained outside an app store.</p>
+          <div class="download-assurance"><span class="assurance-icon" aria-hidden="true">⌁</span><span data-i18n="downloadAssurance">The release page contains no API keys, uploads, or embedded analytics.</span></div>
         </div>
 
-        <div class="feature-grid">
-          <article class="feature-card reveal">
-            <div class="feature-shot">
-              <img src="assets/images/screenshots/schedule.png" alt="Weekly schedule view" loading="lazy" />
-            </div>
-            <div class="feature-body">
-              <h3 data-i18n="feat1Title">Weekly schedule, at a glance</h3>
-              <p data-i18n="feat1Desc">Time axis, weekday columns, current-time indicator, and adaptive layout that scrolls gracefully on small screens.</p>
-            </div>
-          </article>
-
-          <article class="feature-card reveal">
-            <div class="feature-shot">
-              <img src="assets/images/screenshots/import.png" alt="Import hub with AI and edu-system import" loading="lazy" />
-            </div>
-            <div class="feature-body">
-              <h3 data-i18n="feat2Title">AI import, BYOK</h3>
-              <p data-i18n="feat2Desc">Send screenshots or documents to a model you configure. No built-in key, no silent uploads — you choose the provider.</p>
-            </div>
-          </article>
-
-          <article class="feature-card reveal">
-            <div class="feature-shot">
-              <img src="assets/images/screenshots/appearance.png" alt="Appearance settings" loading="lazy" />
-            </div>
-            <div class="feature-body">
-              <h3 data-i18n="feat3Title">Liquid-glass appearance</h3>
-              <p data-i18n="feat3Desc">Adjust blur, opacity, palette, and background. Deeply integrated with Kyant0 AndroidLiquidGlass components.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="download" class="section-pad release-section">
-      <div class="site-width release-layout">
-        <div class="section-heading reveal">
-          <p class="kicker" data-i18n="dlKicker">Release manifest</p>
-          <h2 data-i18n="dlTitle">Get the Android package.</h2>
-          <p data-i18n="dlDesc">
-            All release values come from a single local manifest. Verify the SHA-256 before installing any APK obtained outside an app store.
-          </p>
-        </div>
-
-        <div class="download-panel reveal">
-          <div class="download-panel-header">
-            <div>
-              <p class="eyebrow-light" data-i18n="dlApkLabel">ANDROID APK</p>
-              <h3 data-release-field="version">vX.Y.Z</h3>
-            </div>
+        <div class="download-card reveal">
+          <div class="download-card-top">
+            <div><span class="card-label" data-i18n="dlApkLabel">ANDROID APK</span><h3 data-release-field="version">vX.Y.Z</h3></div>
             <span class="status-pill" data-release-field="status">Metadata pending</span>
           </div>
-
-          <dl class="manifest-list">
-            <div>
-              <dt data-i18n="labelPublished">Published</dt>
-              <dd data-release-field="publishedAt">YYYY-MM-DD</dd>
-            </div>
-            <div>
-              <dt data-i18n="labelSize">Package size</dt>
-              <dd data-release-field="apkSize">XX MB</dd>
-            </div>
-            <div>
-              <dt data-i18n="labelMinAndroid">Minimum Android</dt>
-              <dd data-release-field="minimumAndroid">Android XX+</dd>
-            </div>
-            <div class="checksum-row">
-              <dt data-i18n="labelSha">SHA-256</dt>
-              <dd><code data-release-field="sha256">REPLACE_WITH_64_CHARACTER_SHA256</code></dd>
-            </div>
+          <dl class="manifest-grid">
+            <div><dt data-i18n="labelPublished">Published</dt><dd data-release-field="publishedAt">YYYY-MM-DD</dd></div>
+            <div><dt data-i18n="labelSize">Package size</dt><dd data-release-field="apkSize">XX MB</dd></div>
+            <div><dt data-i18n="labelMinAndroid">Minimum Android</dt><dd data-release-field="minimumAndroid">Android XX+</dd></div>
           </dl>
-
+          <div class="checksum-block">
+            <div class="checksum-label"><span data-i18n="labelSha">SHA-256</span><button class="copy-button" type="button" data-copy-sha data-i18n="copySha">Copy</button></div>
+            <code data-release-field="sha256">REPLACE_WITH_64_CHARACTER_SHA256</code>
+            <span class="copy-feedback" data-copy-feedback aria-live="polite"></span>
+          </div>
           <div class="download-actions">
-            <a class="button button-download" data-release-download data-i18n="dlDownload" href="#download">APK link pending</a>
-            <a class="text-link text-link-light" data-release-notes data-i18n="dlNotes" href="#download">Release notes pending</a>
+            <a class="button button-light" data-release-download data-i18n="dlDownload" href="#download">Download APK</a>
+            <a class="text-link text-link-light" data-release-notes data-i18n="dlNotes" href="#download">Read release notes</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="import" class="section-pad alt-section">
-      <div class="site-width split-layout">
-        <div class="section-heading reveal">
-          <p class="kicker" data-i18n="impKicker">Import guidance</p>
+    <section id="import" class="section checklist-section section-paper">
+      <div class="site-width checklist-layout">
+        <div class="section-intro reveal">
+          <p class="eyebrow eyebrow-dark" data-i18n="impKicker">Before you send anything</p>
           <h2 data-i18n="impTitle">Start with the original material.</h2>
-          <p data-i18n="impDesc">
-            Keep a copy of the source document and use traditional import when you need to bring existing course files into your study workflow.
-          </p>
+          <p data-i18n="impDesc">Keep a copy of the source document and use traditional import when you need to bring existing course files into your study workflow.</p>
         </div>
-
-        <div class="guidance-list">
-          <article class="guidance-item reveal">
-            <p class="item-number">01</p>
-            <div>
-              <h3 data-i18n="imp1Title">Traditional import</h3>
-              <p data-i18n="imp1Desc">
-                Select your existing material from device storage, then review the imported result against the source before relying on it for study or submission.
-              </p>
-            </div>
-          </article>
-          <article class="guidance-item warning-item reveal">
-            <p class="item-number">02</p>
-            <div>
-              <h3 data-i18n="imp2Title">Visual-model warning</h3>
-              <p data-i18n="imp2Desc">
-                Vision-capable models can miss small text, handwriting, tables, equation layout, rotations, and context across pages. Treat visual output as assistance, not an authoritative reading.
-              </p>
-            </div>
-          </article>
-          <article class="guidance-item reveal">
-            <p class="item-number">03</p>
-            <div>
-              <h3 data-i18n="imp3Title">Share deliberately</h3>
-              <p data-i18n="imp3Desc">
-                Only submit material you are allowed to share. Remove sensitive personal information before sending text, pages, or images to a remote AI provider.
-              </p>
-            </div>
-          </article>
+        <div class="checklist reveal">
+          <article class="check-item"><span class="check-number">01</span><div><h3 data-i18n="imp1Title">Traditional import</h3><p data-i18n="imp1Desc">Select your existing material from device storage, then review the imported result against the source before relying on it for study or submission.</p></div></article>
+          <article class="check-item check-item-warning"><span class="check-number">02</span><div><h3 data-i18n="imp2Title">Visual-model warning</h3><p data-i18n="imp2Desc">Vision-capable models can miss small text, handwriting, tables, equation layout, rotations, and context across pages. Treat visual output as assistance, not an authoritative reading.</p></div></article>
+          <article class="check-item"><span class="check-number">03</span><div><h3 data-i18n="imp3Title">Share deliberately</h3><p data-i18n="imp3Desc">Only submit material you are allowed to share. Remove sensitive personal information before sending text, pages, or images to a remote AI provider.</p></div></article>
         </div>
       </div>
     </section>
 
-    <section id="providers" class="section-pad light-section">
+    <section id="providers" class="section routes-section">
       <div class="site-width">
-        <div class="section-heading section-heading-wide reveal">
-          <p class="kicker" data-i18n="provKicker">Provider matrix</p>
-          <h2 data-i18n="provTitle">Know which route handles your material.</h2>
-          <p data-i18n="provDesc">
-            Availability depends on the provider and model you configure. The matrix distinguishes local handling from requests that may send selected content to a remote provider.
-          </p>
+        <div class="section-intro section-intro-split reveal">
+          <div><p class="eyebrow" data-i18n="provKicker">Data routes</p><h2 data-i18n="provTitle">Know what leaves the device.</h2></div>
+          <p data-i18n="provDesc">Availability depends on the provider and model you configure. Each route makes the boundary visible before you use it.</p>
         </div>
-
-        <div class="matrix-wrap reveal" tabindex="0">
-          <table>
-            <caption data-i18n="tableCaption">ClassLens AI data routes</caption>
-            <thead>
-              <tr>
-                <th scope="col" data-i18n="thRoute">Route</th>
-                <th scope="col" data-i18n="thProviderReq">Provider requirement</th>
-                <th scope="col" data-i18n="thLeaves">What may leave the device</th>
-                <th scope="col" data-i18n="thLimitation">Important limitation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" data-i18n="rowTraditional">Traditional import</th>
-                <td data-i18n="valNone">None</td>
-                <td data-i18n="cellTrad1">No AI provider request is required to select source material.</td>
-                <td data-i18n="cellTrad2">Imported content still needs your review for completeness and formatting.</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="rowTextAi">Text-capable AI</th>
-                <td data-i18n="cellText1">A provider and text-capable model selected by you</td>
-                <td data-i18n="cellText2">The text or excerpts you explicitly submit for analysis.</td>
-                <td data-i18n="cellText3">Generated answers can be incomplete, outdated, or incorrect.</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="rowVisionAi">Vision-capable AI</th>
-                <td data-i18n="cellVision1">A provider and vision-capable model selected by you</td>
-                <td data-i18n="cellVision2">The pages, images, or visual excerpts you explicitly submit.</td>
-                <td data-i18n="cellVision3">Visual interpretation is probabilistic; verify it against the image.</td>
-              </tr>
-              <tr>
-                <th scope="row" data-i18n="rowOffline">Offline review</th>
-                <td data-i18n="valNone">None</td>
-                <td data-i18n="cellOff1">No provider transfer is involved.</td>
-                <td data-i18n="cellOff2">AI-generated analysis is unavailable without a configured provider route.</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="route-grid">
+          <article class="route-card route-local reveal"><div class="route-card-head"><span class="route-icon" aria-hidden="true">↗</span><h3 data-i18n="rowTraditional">Traditional import</h3><span class="route-badge" data-i18n="routeLocalBadge">LOCAL</span></div><dl><div><dt data-i18n="thProviderReq">Provider requirement</dt><dd data-i18n="valNone">None</dd></div><div><dt data-i18n="thLeaves">What may leave the device</dt><dd data-i18n="cellTrad1">No AI provider request is required to select source material.</dd></div><div><dt data-i18n="thLimitation">Important limitation</dt><dd data-i18n="cellTrad2">Imported content still needs your review for completeness and formatting.</dd></div></dl></article>
+          <article class="route-card reveal"><div class="route-card-head"><span class="route-icon" aria-hidden="true">Aa</span><h3 data-i18n="rowTextAi">Text-capable AI</h3><span class="route-badge route-badge-remote" data-i18n="routeRemoteBadge">REMOTE</span></div><dl><div><dt data-i18n="thProviderReq">Provider requirement</dt><dd data-i18n="cellText1">A provider and text-capable model selected by you</dd></div><div><dt data-i18n="thLeaves">What may leave the device</dt><dd data-i18n="cellText2">The text or excerpts you explicitly submit for analysis.</dd></div><div><dt data-i18n="thLimitation">Important limitation</dt><dd data-i18n="cellText3">Generated answers can be incomplete, outdated, or incorrect.</dd></div></dl></article>
+          <article class="route-card reveal"><div class="route-card-head"><span class="route-icon" aria-hidden="true">▧</span><h3 data-i18n="rowVisionAi">Vision-capable AI</h3><span class="route-badge route-badge-remote" data-i18n="routeRemoteBadge">REMOTE</span></div><dl><div><dt data-i18n="thProviderReq">Provider requirement</dt><dd data-i18n="cellVision1">A provider and vision-capable model selected by you</dd></div><div><dt data-i18n="thLeaves">What may leave the device</dt><dd data-i18n="cellVision2">The pages, images, or visual excerpts you explicitly submit.</dd></div><div><dt data-i18n="thLimitation">Important limitation</dt><dd data-i18n="cellVision3">Visual interpretation is probabilistic; verify it against the image.</dd></div></dl></article>
+          <article class="route-card route-local reveal"><div class="route-card-head"><span class="route-icon" aria-hidden="true">⊘</span><h3 data-i18n="rowOffline">Offline review</h3><span class="route-badge" data-i18n="routeLocalBadge">LOCAL</span></div><dl><div><dt data-i18n="thProviderReq">Provider requirement</dt><dd data-i18n="valNone">None</dd></div><div><dt data-i18n="thLeaves">What may leave the device</dt><dd data-i18n="cellOff1">No provider transfer is involved.</dd></div><div><dt data-i18n="thLimitation">Important limitation</dt><dd data-i18n="cellOff2">AI-generated analysis is unavailable without a configured provider route.</dd></div></dl></article>
         </div>
       </div>
     </section>
 
-    <section id="privacy" class="section-pad alt-section">
-      <div class="site-width policy-layout">
-        <div class="section-heading reveal">
-          <p class="kicker" data-i18n="privacy">Privacy</p>
-          <h2 data-i18n="privTitle">A release page without hidden credentials.</h2>
-          <p data-i18n="privDesc">
-            This static site contains no API keys, does not ask for provider credentials, and does not send your class material anywhere.
-          </p>
+    <section id="trust" class="section trust-section section-paper">
+      <div class="site-width">
+        <div class="section-intro section-intro-split reveal">
+          <div><p class="eyebrow eyebrow-dark" data-i18n="privacy">Trust, in plain language</p><h2 data-i18n="privTitle">A release page without hidden credentials.</h2></div>
+          <p data-i18n="privDesc">This static site contains no API keys, does not ask for provider credentials, and does not send your class material anywhere.</p>
         </div>
-
-        <div class="policy-columns">
-          <article class="policy-item reveal">
-            <h3 data-i18n="priv1Title">Provider boundaries</h3>
-            <p data-i18n="priv1Desc">
-              When you choose to submit content through a configured AI route, that provider's terms, retention practices, and privacy policy govern the submitted content.
-            </p>
-          </article>
-          <article class="policy-item reveal">
-            <h3 data-i18n="priv2Title">Release-page scope</h3>
-            <p data-i18n="priv2Desc">
-              The release page is informational. It does not collect uploads, account data, or provider keys, and it has no embedded analytics or third-party media.
-            </p>
-          </article>
-          <article class="policy-item reveal">
-            <h3 data-i18n="priv3Title">Your review</h3>
-            <p data-i18n="priv3Desc">
-              Check the APK source and SHA-256 before installation, and only use materials you have the right to process.
-            </p>
-          </article>
+        <div class="trust-grid">
+          <article class="trust-card reveal"><span class="trust-card-number">01</span><h3 data-i18n="priv1Title">Provider boundaries</h3><p data-i18n="priv1Desc">When you choose to submit content through a configured AI route, that provider's terms, retention practices, and privacy policy govern the submitted content.</p></article>
+          <article class="trust-card reveal"><span class="trust-card-number">02</span><h3 data-i18n="priv2Title">Release-page scope</h3><p data-i18n="priv2Desc">The release page is informational. It does not collect uploads, account data, or provider keys, and it has no embedded analytics or third-party media.</p></article>
+          <article class="trust-card reveal"><span class="trust-card-number">03</span><h3 data-i18n="priv3Title">Your review</h3><p data-i18n="priv3Desc">Check the APK source and SHA-256 before installation, and only use materials you have the right to process.</p></article>
         </div>
-      </div>
-    </section>
-
-    <section id="licenses" class="section-pad-sm license-section">
-      <div class="site-width split-layout">
-        <div class="section-heading reveal">
-          <p class="kicker" data-i18n="licenses">Licenses</p>
-          <h2 data-i18n="licTitle">License information belongs with the build.</h2>
-          <p data-i18n="licDesc">
-            The final APK includes its applicable ClassLens license and third-party notices. Verify the metadata below against the published build.
-          </p>
-        </div>
-
-        <div class="license-notes">
-          <p class="reveal"><strong data-i18n="licAppTitle">ClassLens application license</strong><span data-release-field="license">License information pending release</span></p>
-          <p class="reveal"><strong data-i18n="licThirdTitle">Third-party notices</strong><span data-i18n="licThirdDesc">Published with the final build and source distribution, where applicable.</span></p>
-          <p class="reveal"><strong data-i18n="licModelTitle">Model and provider terms</strong><span data-i18n="licModelDesc">Reviewed separately under the terms of the provider and model you choose.</span></p>
+        <div class="license-row reveal">
+          <div><span class="eyebrow eyebrow-dark" data-i18n="licenses">Licenses</span><h3 data-i18n="licTitle">License information belongs with the build.</h3></div>
+          <div class="license-list">
+            <p><strong data-i18n="licAppTitle">ClassLens application license</strong><span data-release-field="license">License information pending release</span></p>
+            <p><strong data-i18n="licThirdTitle">Third-party notices</strong><span data-i18n="licThirdDesc">Published with the final build and source distribution, where applicable.</span></p>
+            <p><strong data-i18n="licModelTitle">Model and provider terms</strong><span data-i18n="licModelDesc">Reviewed separately under the terms of the provider and model you choose.</span></p>
+          </div>
         </div>
       </div>
     </section>
@@ -329,16 +262,13 @@
 
   <footer class="site-footer">
     <div class="site-width footer-content">
-      <span data-i18n="brandName">ClassLens AI</span>
-      <span data-i18n="footerDesc">Static Android release information</span>
+      <a class="brand footer-brand" href="#product"><span class="brand-mark" aria-hidden="true">CL</span><span data-i18n="brandName">ClassLens AI</span></a>
+      <div class="footer-links"><a href="#flow" data-i18n="navFlow">Flow</a><a href="#trust" data-i18n="navTrust">Trust</a><a href="#download" data-i18n="navDownload">Download</a></div>
+      <span class="footer-note" data-i18n="footerDesc">Static Android release information</span>
     </div>
   </footer>
 
-  <a href="#top" class="back-to-top" aria-label="Back to top">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <polyline points="18 15 12 9 6 15"></polyline>
-    </svg>
-  </a>
+  <a href="#product" class="back-to-top" aria-label="Back to top"><span aria-hidden="true">↑</span></a>
 
   <script src="assets/js/release-config.js"></script>
   <script src="assets/js/release.js"></script>
