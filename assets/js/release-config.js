@@ -12,7 +12,7 @@ window.ClassLensRelease = {
   apkSize: "9.1 MB",
   minimumAndroid: "Android 8+",
   apkUrl: "https://classlens.kanghelyu.org/download/ClassLens-AI-v1.0.0.apk",
-  sha256: "5b856994558d7debd4047dfe047b39bcd28118e3aedf724b6e5eb0409f6d13d7",
+  sha256: "6dd2ac732b70ae25d84605c3dc50e9751dcd64b07b010dbd54ee1180190a2512",
   releaseNotesUrl: "https://github.com/kanghelyu/classlens-site/releases/tag/v1.0.0",
   license: "Apache-2.0"
 };
