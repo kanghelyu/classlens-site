@@ -163,6 +163,7 @@ h1 em, h2 em { color: var(--brand-soft); font-family: "Instrument Serif", Georgi
 .workflow-shot img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; border-radius: inherit; }
 .workflow-shot-import { background: #e8eee9; }
 .workflow-shot-schedule { background: #e6edf0; }
+.workflow-shot-widget { background: #e7ede2; }
 .workflow-shot-appearance { background: #f0e8e4; }
 
 .download-section { overflow: hidden; background: var(--ink-soft); }
