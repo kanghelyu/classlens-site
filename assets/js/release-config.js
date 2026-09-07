@@ -6,13 +6,13 @@
  * Keep provider credentials out of this site and out of the released APK.
  */
 window.ClassLensRelease = {
-  version: "v1.0.9",
+  version: "v1.0.10",
   status: "Available",
   publishedAt: "2026-09-07",
   apkSize: "9.5 MB",
   minimumAndroid: "Android 8+",
-  apkUrl: "https://classlens.kanghelyu.org/download/ClassLens-AI-v1.0.9.apk",
-  sha256: "f2fa23ce1734fae549490c822aab4a05ad18eb8459dc48a38221d3aa99a6207e",
-  releaseNotesUrl: "https://github.com/kanghelyu/classlens-site/releases/tag/v1.0.9",
+  apkUrl: "https://classlens.kanghelyu.org/download/ClassLens-AI-v1.0.10.apk",
+  sha256: "432f866c11475beaec5136eabe1991e5dee6f8185929e6d6f0bac5e88708eb9d",
+  releaseNotesUrl: "https://github.com/kanghelyu/classlens-site/releases/tag/v1.0.10",
   license: "Apache-2.0"
 };

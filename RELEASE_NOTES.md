@@ -1,3 +1,20 @@
+# ClassLens AI v1.0.10 / 课镜 AI
+
+修复：教务导入「粘贴 HTML」标签页闪退。
+
+## 修复
+
+- 切到「粘贴 HTML」页必现闪退：统一玻璃输入框的默认 maxLines 固定为 5，而粘贴框需要 minLines 6，组合非法直接抛异常。现已让默认 maxLines 自动跟随 minLines 抬高，并排查全项目无同类隐患
+- 真机回归验证：进入粘贴页、切换标签均正常，无崩溃
+
+## 下载
+
+- `ClassLens-AI-v1.0.10.apk` — Android 8.0（API 26）及以上
+- SHA-256：`432f866c11475beaec5136eabe1991e5dee6f8185929e6d6f0bac5e88708eb9d`
+- 大小：9,979,110 字节（9.5 MB）
+
+---
+
 # ClassLens AI v1.0.9 / 课镜 AI
 
 弹窗玻璃材质补全 + 布局修复 + 小组件时间说明。
