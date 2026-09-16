@@ -42,7 +42,7 @@
 ## 下载
 
 - `ClassLens-AI-v1.0.13.apk` — Android 8.0（API 26）及以上
-- SHA-256：`13b17374fa5b97f3f8bd0b5681dc4e2ffec4416132c1c0c6d8b55538d3ffceba`
+- SHA-256：`27295efaf3a4e37f617228d1c3a2d66ad3e3058aab73d26564a6f1f75d79563a`
 - 大小：9,915,849 字节（9.5 MB）
 
 ---
