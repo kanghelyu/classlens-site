@@ -141,7 +141,7 @@ h1 em, h2 em { color: var(--brand-soft); font-family: "Instrument Serif", Georgi
 
 .workflow-section { padding-bottom: 145px; }
 .workflow-shell { margin-top: 72px; border-top: 1px solid var(--line); }
-.workflow-tabs { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+.workflow-tabs { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
 .workflow-tab { display: grid; grid-template-columns: 40px 1fr 20px; align-items: center; gap: 11px; min-height: 72px; padding: 0 18px 0 0; border: 0; border-right: 1px solid var(--line); background: transparent; color: var(--muted); text-align: left; cursor: pointer; transition: color .2s ease, background .2s ease; }
 .workflow-tab + .workflow-tab { padding-left: 23px; }
 .workflow-tab:last-child { border-right: 0; }
@@ -164,6 +164,7 @@ h1 em, h2 em { color: var(--brand-soft); font-family: "Instrument Serif", Georgi
 .workflow-shot-import { background: #e8eee9; }
 .workflow-shot-schedule { background: #e6edf0; }
 .workflow-shot-appearance { background: #f0e8e4; }
+.workflow-shot-mcp { background: #e9e6ef; }
 
 .download-section { overflow: hidden; background: var(--ink-soft); }
 .download-glow { position: absolute; width: 600px; height: 600px; right: -180px; top: -260px; border-radius: 50%; background: radial-gradient(circle, rgba(224,113,92,.22), transparent 68%); filter: blur(8px); pointer-events: none; }
